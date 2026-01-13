@@ -68,45 +68,18 @@ app.post('/threads', function(req, res) {
 });
 
 app.get('/privacy', function(req, res) {
-  res.send(`
-    <!DOCTYPE html>
-    <html>
-    <head>
-      <title>Privacy Policy</title>
-      <style>
-        body { font-family: Arial, sans-serif; max-width: 800px; margin: 50px auto; padding: 20px; }
-        h1 { color: #333; }
-        h2 { color: #666; margin-top: 30px; }
-        p { line-height: 1.6; }
-      </style>
-    </head>
-    <body>
-      <h1>Privacy Policy</h1>
-      <p><strong>Last updated:</strong> ${new Date().toLocaleDateString()}</p>
-
-      <h2>1. Data Collection</h2>
-      <p>We collect Instagram messages and user IDs when you interact with our service through Instagram Direct Messages.</p>
-
-      <h2>2. Data Usage</h2>
-      <p>We use this data to provide customer support and account management services for Instagram professional accounts.</p>
-
-      <h2>3. Data Storage</h2>
-      <p>Conversation data is stored securely on our servers and is only accessible to authorized personnel.</p>
-
-      <h2>4. Data Sharing</h2>
-      <p>We do not share your data with third parties. Your information is used solely for providing our services.</p>
-
-      <h2>5. Data Retention</h2>
-      <p>We retain your data only as long as necessary to provide our services and comply with legal obligations.</p>
-
-      <h2>6. Your Rights</h2>
-      <p>You have the right to access, modify, or delete your personal data. Contact us to exercise these rights.</p>
-
-      <h2>7. Contact</h2>
-      <p>For questions about this privacy policy, please contact us through our app.</p>
-    </body>
-    </html>
-  `);
+  var html = '<!DOCTYPE html><html><head><title>Privacy Policy</title>';
+  html += '<style>body { font-family: Arial, sans-serif; max-width: 800px; margin: 50px auto; padding: 20px; }';
+  html += 'h1 { color: #333; } h2 { color: #666; margin-top: 30px; } p { line-height: 1.6; }</style></head><body>';
+  html += '<h1>Privacy Policy</h1><p><strong>Last updated:</strong> ' + new Date().toLocaleDateString() + '</p>';
+  html += '<h2>1. Data Collection</h2><p>We collect Instagram messages and user IDs when you interact with our service through Instagram Direct Messages.</p>';
+  html += '<h2>2. Data Usage</h2><p>We use this data to provide customer support and account management services for Instagram professional accounts.</p>';
+  html += '<h2>3. Data Storage</h2><p>Conversation data is stored securely on our servers and is only accessible to authorized personnel.</p>';
+  html += '<h2>4. Data Sharing</h2><p>We do not share your data with third parties. Your information is used solely for providing our services.</p>';
+  html += '<h2>5. Data Retention</h2><p>We retain your data only as long as necessary to provide our services and comply with legal obligations.</p>';
+  html += '<h2>6. Your Rights</h2><p>You have the right to access, modify, or delete your personal data. Contact us to exercise these rights.</p>';
+  html += '<h2>7. Contact</h2><p>For questions about this privacy policy, please contact us through our app.</p></body></html>';
+  res.send(html);
 });
 
 app.listen();
